@@ -1,0 +1,87 @@
+[package]
+description = "Example implementation of native token transfer standard"
+edition = "2021"
+name = "example_native_token_transfers2"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[features]
+default = ["mainnet"]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+# idl-build = ["anchor-lang/idl-build", "anchor-spl/idl-build"]
+# cargo-test-sbf will pass this along
+test-sbf = []
+# networks
+mainnet = [
+  #"wormhole-anchor-sdk/mainnet"
+]
+solana-devnet = [
+  #"wormhole-anchor-sdk/solana-devnet"
+]
+tilt-devnet = [
+  #"wormhole-anchor-sdk/tilt-devnet"
+]
+tilt-devnet2 = ["tilt-devnet"]
+
+[lints]
+workspace = true
+
+[dependencies]
+
+ntt-messages2 = { path = "../../modules/ntt-messages2", features = [
+  "borsh",
+  "hash",
+] }
+# anchor-lang = { workspace = true, features = ["init-if-needed"] }
+# anchor-spl.workspace = true
+bitmaps = "3.2.1"
+hex.workspace = true
+cfg-if.workspace = true
+shank_macro = { version = "0.4.4" }
+thiserror = "1.0.69"
+num-derive = "0.4.2"
+num-traits = "0.2.19"
+borsh = { version = "1.5.7", features = ["derive"] }
+solana-program-error = "2.2.2"
+solana-msg = "2.2.1"
+solana-pubkey = { version = "2.3.0", features = ["borsh", "bytemuck"] }
+solana-account-info = "2.3.0"
+solana-program-entrypoint = "2.3.0"
+solana-program-pack = "2.2.1"
+solana-clock = { version = "2.2.2" }
+solana-instruction = "2.3.0"
+solana-system-interface = { version = "1.0.0", features = ["bincode"] }
+solana-sysvar = { version = "2.3.0", features = ["bincode", "serde"] }
+solana-cpi = "2.2.1"
+spl-token-2022 = { version = "8.0.0", features = ["no-entrypoint"] }
+# solana-program.workspace = true
+# solana-address-lookup-table-program.workspace = true
+# spl-token-2022 = { workspace = true, features = ["no-entrypoint"] }
+# wormhole-anchor-sdk.workspace = true
+wormhole-io.workspace = true
+# wormhole-solana-utils.workspace = true
+
+[dev-dependencies]
+# wormhole-governance = { path = "../wormhole-governance", features = [
+#   "no-entrypoint",
+# ] }
+# solana-program-test.workspace = true
+# serde_json = "1.0.113"
+# serde = "1.0.196"
+# base64 = "0.21.7"
+# solana-sdk = "*"
+# spl-token = "4"
+# spl-associated-token-account = { version = "3.0.0", features = [
+#   "no-entrypoint",
+# ] }
+# sha3 = "0.10.4"
+# wormhole-raw-vaas = "0.2.0-alpha.2"
+# libsecp256k1 = "=0.6.0"
+# wormhole-sdk.workspace = true
+# serde_wormhole.workspace = true
+# solana-program-runtime.workspace = true
+# bincode = "1.3.3"

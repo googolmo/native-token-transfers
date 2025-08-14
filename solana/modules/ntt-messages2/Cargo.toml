@@ -1,0 +1,23 @@
+[package]
+name = "ntt-messages2"
+version = "3.0.0"
+edition = "2021"
+
+[features]
+default = ["wormhole", "hash", "borsh"]
+wormhole = []
+borsh = ["dep:borsh"]
+hash = ["solana-keccak-hasher", "solana-hash"]
+
+[lints]
+workspace = true
+
+[dependencies]
+wormhole-io.workspace = true
+borsh = { version = "1.5.7", features = ["derive"], optional = true }
+solana-keccak-hasher = { version = "2.2.1", optional = true }
+solana-hash = { version = "2.3.0", features = ["borsh"], optional = true }
+
+[dev-dependencies]
+
+hex.workspace = true

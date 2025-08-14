@@ -1,8 +1,5 @@
 [workspace]
-members = [
-    "programs/*",
-    "modules/*"
-]
+members = ["programs/*2", "modules/*2"]
 resolver = "2"
 
 [workspace.lints.rust]
