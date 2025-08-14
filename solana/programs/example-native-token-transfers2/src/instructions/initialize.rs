@@ -8,7 +8,12 @@ use solana_program_error::ProgramResult;
 use solana_pubkey::Pubkey;
 // use wormhole_solana_utils::cpi::bpf_loader_upgradeable::BpfLoaderUpgradeable;
 use crate::{
-    accounts::InitializeAccounts, bitmap::Bitmap, config::Config, error::NTTError, queue::{outbox::OutboxRateLimit, rate_limit::RateLimitState}, spl_multisig::SplMultisig
+    accounts::InitializeAccounts,
+    bitmap::Bitmap,
+    config::Config,
+    error::NTTError,
+    queue::{outbox::OutboxRateLimit, rate_limit::RateLimitState},
+    spl_multisig::SplMultisig,
 };
 
 // #[cfg(feature = "idl-build")]
@@ -106,13 +111,13 @@ pub struct InitializeArgs {
 }
 
 pub fn process_initialize<'a>(
-  program_id: &Pubkey,
-  accounts: &'a [AccountInfo<'a>],
-  instruction_data: &InitializeArgs,
+    _program_id: &Pubkey,
+    accounts: &'a [AccountInfo<'a>],
+    _instruction_data: &InitializeArgs,
 ) -> ProgramResult {
-  let ctx = InitializeAccounts::context(accounts);
-  solana_msg::msg!("signer {:?}", ctx.accounts.signer.key);
-  todo!()
+    let ctx = InitializeAccounts::context(accounts)?;
+    solana_msg::msg!("signer {:?}", ctx.accounts.payer.key);
+    todo!()
 }
 
 // pub fn process_initialize(ctx: Context<Initialize>, args: InitializeArgs) -> Result<()> {

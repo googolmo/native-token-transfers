@@ -12,6 +12,8 @@ no-entrypoint = []
 no-idl = []
 no-log-ix-name = []
 cpi = ["no-entrypoint"]
+custom-heap = []
+custom-panic = []
 # idl-build = ["anchor-lang/idl-build", "anchor-spl/idl-build"]
 # cargo-test-sbf will pass this along
 test-sbf = []
@@ -41,7 +43,9 @@ ntt-messages2 = { path = "../../modules/ntt-messages2", features = [
 bitmaps = "3.2.1"
 hex.workspace = true
 cfg-if.workspace = true
-shank_macro = { version = "0.4.4" }
+shank_macro = { version = "0.4.4", git = "https://github.com/googolmo/shank", rev = "b4cd5e0"}
+shank_render = { version = "0.4.4", git = "https://github.com/googolmo/shank", rev = "b4cd5e0"}
+shank_macro_impl = { version = "0.4.4", git = "https://github.com/googolmo/shank", rev = "b4cd5e0"}
 thiserror = "1.0.69"
 num-derive = "0.4.2"
 num-traits = "0.2.19"
